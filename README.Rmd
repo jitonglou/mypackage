@@ -45,13 +45,13 @@ knitr::include_graphics("Rmd_figures/RStudio_RFunc.png")
 To create a C++ script file, under the **File** menu, click **New File** then **C++ File**.
 Delete or comment the R code block at the end of the template.
 Change the first two lines to
-```{c++ RcppFunc header, eval=FALSE}
+```{r RcppFunc header, eval=FALSE}
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 using namespace Rcpp;
 ```
 and write a simple function like
-```{c++ RcppFunc, eval=FALSE}
+```{r RcppFunc, eval=FALSE}
 // [[Rcpp::export]]
 double add_one_cpp(const double& x) {
   return x+1.0;

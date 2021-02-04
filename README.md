@@ -44,9 +44,22 @@ and save the R script file `myfunc.R` to **R** folder.
 under the **File** menu, click **New File** then **C++ File**. Delete or
 comment the R code block at the end of the template. Change the first
 two lines to
-`{c++ RcppFunc header, eval=FALSE} #include <RcppArmadillo.h> // [[Rcpp::depends(RcppArmadillo)]] using namespace Rcpp;`
+
+``` r
+#include <RcppArmadillo.h>
+// [[Rcpp::depends(RcppArmadillo)]]
+using namespace Rcpp;
+```
+
 and write a simple function like
-`{c++ RcppFunc, eval=FALSE} // [[Rcpp::export]] double add_one_cpp(const double& x) {   return x+1.0; }`
+
+``` r
+// [[Rcpp::export]]
+double add_one_cpp(const double& x) {
+  return x+1.0;
+}
+```
+
 and save the C++ script file `myfunc_cpp.cpp` to **src** folder.
 ![](Rmd_figures/RStudio_RcppFunc.png)<!-- --> If you want to test the
 C++ function before compiling the package, in R console, run
@@ -218,8 +231,8 @@ mbm
 
     ## Unit: nanoseconds
     ##  expr  min   lq mean median   uq   max neval cld
-    ##     r  400  400  570    400  500 12200   100  a 
-    ##   cpp 1200 1400 1732   1500 1800 11400   100   b
+    ##     r  500  600  621    600  600  2700   100  a 
+    ##   cpp 1600 1700 2215   1800 2200 22900   100   b
 
 I used the function argument `check` to check for equality (up to a
 maximal error of `1e-8`) of the results returned by the two functions.
